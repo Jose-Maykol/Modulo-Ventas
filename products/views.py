@@ -19,9 +19,13 @@ class ProductoListView(ListView):
 
 class ProductoUpdateView(UpdateView):
     model = Producto
-    template_name = "TEMPLATE_NAME"
+    form_class = ProductoForm
+    template_name = "update_product.html"
+    field = '__all__'
+    success_url = '/products/list/'
 
 #Para despues ...
-class ProductoDetailView(DetailView):
+class ProductoDeleteView(DeleteView):
     model = Producto
-    template_name = "TEMPLATE_NAME"
+    template_name = "delete_product.html"
+    success_url = '/products/list/'
