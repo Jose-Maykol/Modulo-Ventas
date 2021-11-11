@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'products',
     'customers',
-    'sales'
+    'sales',
+    'bills',
+    'orders',
+    'vendors'
 ]
 
 MIDDLEWARE = [
@@ -63,6 +66,9 @@ TEMPLATES = [
             os.path.join(BASE_DIR, "products/templates"),
             os.path.join(BASE_DIR, "customers/templates"),
             os.path.join(BASE_DIR, "sales/templates"),
+            os.path.join(BASE_DIR, "bills/templates"),
+            os.path.join(BASE_DIR, "orders/templates"),
+            os.path.join(BASE_DIR, "vendors/templates")
         ],
         'APP_DIRS': True,
         'OPTIONS': {
