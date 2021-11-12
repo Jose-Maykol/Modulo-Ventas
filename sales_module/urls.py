@@ -10,9 +10,9 @@ urlpatterns = [
     path('products/', include('products.urls')),
     path('customers/', include('customers.urls')),
     path('sales/', include('sales.urls')),
-    path('bills/', include('bills.urls')),
-    path('orders/', include('orders.urls')),
-    path('vendors/', include('vendors.urls')),
+    #path('bills/', include('bills.urls')),
+    #path('orders/', include('orders.urls')),
+    #path('vendors/', include('vendors.urls')),
 ]
 
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
