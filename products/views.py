@@ -29,3 +29,8 @@ class ProductoDeleteView(DeleteView):
     model = Producto
     template_name = "delete_product.html"
     success_url = '/products/list/'
+
+
+class ProductoDetailView(DetailView):
+    model = Producto
+    template_name = "detail_product.html"

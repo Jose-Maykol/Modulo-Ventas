@@ -4,8 +4,6 @@ from django.db import models
 
 class Cliente(models.Model):
 
-    # TODO: Define fields here
-
     RUC = models.CharField(max_length= 12,verbose_name='RUC')
     DNI = models.CharField(max_length= 8,verbose_name= "DNI")
     name = models.CharField(max_length= 50,verbose_name='Nombre de cliente')

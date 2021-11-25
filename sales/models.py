@@ -6,8 +6,6 @@ from products.models import Producto
 
 class Venta(models.Model):
 
-    # TODO: Define fields here
-
     class PaymentStatus(models.TextChoices):
         pending = 'PENDIENTE', 'Pendiente'
         defeated = 'VENCIDO' , 'Vencido'

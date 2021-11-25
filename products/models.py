@@ -4,8 +4,6 @@ from django.db import models
 
 class Producto(models.Model):
 
-    # TODO: Define fields here
-
     name = models.CharField(max_length= 200, verbose_name= 'Nombre del producto')
     price = models.DecimalField(decimal_places= 2, max_digits= 10 ,verbose_name='Precio')
     cost = models.DecimalField(decimal_places= 2, max_digits= 10 ,verbose_name= 'Coste')

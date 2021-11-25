@@ -1,9 +1,7 @@
 {% extends 'index.html' %}
       
 
-{% block content %}
-
-            
+{% block content %}           
 <div class="modal fade" id="new-order" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -32,14 +30,12 @@
       <div class="col-lg-12">
           <div class="d-flex flex-wrap flex-wrap align-items-center justify-content-between mb-4">
               <div>
-                  <h4 class="mb-3">Product List</h4>
-                  <p class="mb-0">The product list effectively dictates product presentation and provides space<br> to list your products and offering in the most appealing way.</p>
+                  <h4 class="mb-3">Lista Clientes</h4>
+                  <!-- <p class="mb-0">The product list effectively dictates product presentation and provides space<br> to list your products and offering in the most appealing way.</p> -->
               </div>
-              <a href="page-add-product.html" class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>Add Product</a>
+              <a href="{% url 'create_customer' %}" class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>Añadir Cliente</a>
           </div>
       </div>
-                                      
-
       <div class="col-lg-12">
           <div class="table-responsive rounded mb-3">
 
@@ -74,7 +70,7 @@
                       <td>
                           <div class="d-flex align-items-center list-action">
                               <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="View"
-                                  href="#"><i class="ri-eye-line mr-0"></i></a>
+                                  href="{% url 'detail_customer' customer.id %}"><i class="ri-eye-line mr-0"></i></a>
                               <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"
                                   href="{% url 'update_customer' customer.id %}"><i class="ri-pencil-line mr-0"></i></a>
                               <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"
