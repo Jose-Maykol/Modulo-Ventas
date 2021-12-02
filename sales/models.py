@@ -16,8 +16,8 @@ class Venta(models.Model):
         pending =  'PENDIENTE' , 'Pendiente' """
        
 
-    customer = models.OneToOneField(Cliente, on_delete= models.SET_DEFAULT, default= None, verbose_name= 'Cliente')
-    product = models.OneToOneField(Producto, on_delete= models.SET_DEFAULT, default= None, verbose_name= 'Producto')
+    customer = models.ForeignKey(Cliente, on_delete= models.SET_DEFAULT, default= None, verbose_name= 'Cliente')
+    product = models.ForeignKey(Producto, on_delete= models.SET_DEFAULT, default= None, verbose_name= 'Producto')
     amount = models.PositiveIntegerField(verbose_name= 'Cantidad') 
     payment_status = models.CharField(max_length= 50,choices= PaymentStatus.choices, verbose_name= 'Estado de pago')
     #sale_status = models.CharField(max_length= 50,choices= SaleStatus.choices, verbose_name= 'Estado de venta')

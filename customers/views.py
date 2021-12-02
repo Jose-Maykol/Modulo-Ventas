@@ -9,7 +9,7 @@ class ClienteCreateView(CreateView):
     model = Cliente
     form_class = ClienteForm
     template_name = "create_customer.html"
-    success_url = '/'
+    success_url = '/customers/list/'
 
 class ClienteListView(ListView):
     model = Cliente

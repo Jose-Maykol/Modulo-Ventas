@@ -15,8 +15,8 @@ class Pedido(models.Model):
         cancelled= 'CANCELADO', 'Cancelado'
        
 
-    customer = models.OneToOneField(Cliente, on_delete= models.SET_DEFAULT, default= None, verbose_name= 'Cliente')
-    product = models.OneToOneField(Producto, on_delete= models.SET_DEFAULT, default= None, verbose_name= 'Producto')
+    customer = models.ForeignKey(Cliente, on_delete= models.SET_DEFAULT, default= None, verbose_name= 'Cliente')
+    product = models.ForeignKey(Producto, on_delete= models.SET_DEFAULT, default= None, verbose_name= 'Producto')
     amount = models.PositiveIntegerField(verbose_name= 'Cantidad') 
     order_status = models.CharField(max_length= 50,choices= OrderStatus.choices, verbose_name= 'Estado de pedido')
     order_date = models.DateTimeField(verbose_name= 'Fecha de pedido')
@@ -32,7 +32,7 @@ def generateSale(sender, instance, **kwargs):
             customer = instance.customer,
             product = instance.product,
             amount = instance.amount,
-            payment_status = "PENDIENTE",
+            payment_status = 'PENDIENTE',
             sale_date = instance.order_date
         )
         venta.save()
