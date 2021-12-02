@@ -8,13 +8,15 @@ class ProductoForm(forms.ModelForm):
         model = Producto
         fields = (
             'name',
+            'description',
             'price',
             'cost',
-            'image'
+            'image',
         ) 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'price': forms.NumberInput(attrs={'class': 'form-control'}),
             'cost': forms.NumberInput(attrs={'class': 'form-control'}),
             'image': forms.FileInput(attrs={'class': 'form-control image-file'}),
+            'description': forms.Textarea(attrs={'class': 'form-control'}),
         }

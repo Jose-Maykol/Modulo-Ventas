@@ -4,10 +4,12 @@ from django.db import models
 
 class Producto(models.Model):
 
-    name = models.CharField(max_length= 200, verbose_name= 'Nombre del producto')
+    name = models.CharField(max_length= 100, verbose_name= 'Nombre del producto')
     price = models.DecimalField(decimal_places= 2, max_digits= 10 ,verbose_name='Precio')
     cost = models.DecimalField(decimal_places= 2, max_digits= 10 ,verbose_name= 'Coste')
     image =  models.ImageField(upload_to= 'img/productos', null = True, blank = True, verbose_name= 'Imagen')
+    description = models.TextField(max_length=100, verbose_name= 'Descripcion')
+
     class Meta:
 
         verbose_name = 'Producto'
