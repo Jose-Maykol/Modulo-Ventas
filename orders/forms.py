@@ -1,22 +1,22 @@
 from django import forms
 from django.forms import widgets
-from .models import Venta
+from .models import Pedido
 
-class VentaForm(forms.ModelForm):
+class PedidoForm(forms.ModelForm):
 
     class Meta:
-        model = Venta
+        model = Pedido
         fields = (
             'customer',
             'product',
             'amount',
-            'payment_status',
-            'sale_date'
+            'order_status',
+            'order_date'
         ) 
         widgets = {
             'customer': forms.Select(attrs={'class': 'form-control'}),
             'product': forms.Select(attrs={'class': 'form-control'}),
             'amount': forms.TextInput(attrs={'class': 'form-control'}),
-            'payment_status': forms.Select(attrs={'class': 'form-control'}),
-            'sale_date': forms.DateInput(attrs={'class': 'form-control'}),
+            'order_status': forms.Select(attrs={'class': 'form-control'}),
+            'order_date': forms.DateInput(attrs={'class': 'form-control'}),
         }

@@ -49,8 +49,7 @@
                       <th>Producto</th>
                       <th>Cantidad</th>
                       <th>Estado de pago</th>
-                      <th>Estado de venta</th>
-                      <th>Dia de venta</th>
+                      <th>Fecha de venta</th>
                       <th>Acciones</th>
                   </tr>
               </thead>
@@ -60,8 +59,15 @@
                         <th>{{sale.customer}}</th>
                         <th>{{sale.product}}</th>
                         <th>{{sale.amount}}</th>
+                        {% if sale.payment_status == 'PAGADO'%}
+                        <th><span class="mt-2 badge badge-pill badge-success">{{sale.payment_status}}</span></th>
+                        {% elif sale.payment_status == 'VENCIDO'%}
+                        <th><span class="mt-2 badge badge-pill badge-danger">{{sale.payment_status}}</span></th>
+                        {% elif sale.payment_status == 'PENDIENTE'%}
+                        <th><span class="mt-2 badge badge-pill badge-secondary">{{sale.payment_status}}</span></th>
+                        {% else %}
                         <th>{{sale.payment_status}}</th>
-                        <th>{{sale.sale_status}}</th>
+                        {% endif %}     
                         <th>{{sale.sale_date}}</th>
                       <td>
                           <div class="d-flex align-items-center list-action">

@@ -32,53 +32,51 @@
       <div class="col-lg-12">
           <div class="d-flex flex-wrap flex-wrap align-items-center justify-content-between mb-4">
               <div>
-                  <h4 class="mb-3">Product List</h4>
-                  <p class="mb-0">The product list effectively dictates product presentation and provides space<br> to list your products and offering in the most appealing way.</p>
+                  <h4 class="mb-3">Lista de Pedidos</h4>
               </div>
-              <a href="page-add-product.html" class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>Add Product</a>
+              <a href="{% url 'create_order' %}" class="btn btn-primary add-list"><i class="las la-plus mr-3"></i>Añadir Pedido</a>
           </div>
       </div>
                                       
 
       <div class="col-lg-12">
           <div class="table-responsive rounded mb-3">
-
-            <p>{{customer.name}}</p>
-            <p>{{customer.DNI}}</p>
-
           <table class="data-tables table mb-0 tbl-server-info">
               <thead class="bg-white text-uppercase">
                   <tr class="ligth ligth-data">
-                      <th>Nombres</th>
-                      <th>RUC</th>
-                      <th>DNI</th>
-                      <th>Dirección</th>
-                      <th>Ciudad</th>
-                      <th>Telefono</th>
-                      <th>Email</th>
-                      <th>Sitio web</th>
+                      <th>Cliente</th>
+                      <th>Producto</th>
+                      <th>Cantidad</th>
+                      <th>Estado de Pedido</th>
+                      <th>Fecha de pedido</th>
                       <th>Acciones</th>
                   </tr>
               </thead>
               <tbody class="ligth-body">
-                {% for customer  in object_list %}
+                {% for order in object_list %}
                   <tr>
-                        <th>{{customer.name}}</th>
-                        <th>{{customer.RUC}}</th>
-                        <th>{{customer.DNI}}</th>
-                        <th>{{customer.adress}}</th>
-                        <th>{{customer.city}}</th>
-                        <th>{{customer.phone_number}}</th>
-                        <th>{{customer.email}}</th>
-                        <th>{{customer.site_web}}</th>
+                        <th>{{order.customer}}</th>
+                        <th>{{order.product}}</th>
+                        <th>{{order.amount}}</th>
+                        
+                        {% if order.order_status == 'COMPLETADO' %}
+                        <th><span class="mt-2 badge badge-pill badge-success">{{order.order_status}}</span></th>
+                        {% elif order.order_status == 'PENDIENTE' %}
+                        <th><span class="mt-2 badge badge-pill badge-secondary">{{order.order_status}}</span></th>
+                        {% elif order.order_status == 'CANCELADO' %}
+                        <th><span class="mt-2 badge badge-pill badge-danger">{{order.order_status}}</span></th>
+                        {% else %}
+                        <th >{{order.order_status}}</th>    
+                        {% endif %}
+                        <th>{{order.order_date}}</th>
                       <td>
                           <div class="d-flex align-items-center list-action">
-                              <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="View"
-                                  href="#"><i class="ri-eye-line mr-0"></i></a>
+                              <!-- <a class="badge badge-info mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="View"
+                                  href="#"><i class="ri-eye-line mr-0"></i></a> -->
                               <a class="badge bg-success mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"
-                                  href="{% url 'update_customer' customer.id %}"><i class="ri-pencil-line mr-0"></i></a>
+                                  href="{% url 'update_order' order.id %}"><i class="ri-pencil-line mr-0"></i></a>
                               <a class="badge bg-warning mr-2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"
-                                  href="{% url 'delete_customer' customer.id %}"><i class="ri-delete-bin-line mr-0"></i></a>
+                                  href="{% url 'delete_order' order.id %}"><i class="ri-delete-bin-line mr-0"></i></a>
                           </div>
                       </td>
                   </tr>

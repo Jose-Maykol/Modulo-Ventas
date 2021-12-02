@@ -6,7 +6,7 @@
                   <div class="modal-content">
                       <div class="modal-body">
                           <div class="popup text-left">
-                              <h4 class="mb-3">New Order</h4>
+                              <h4 class="mb-3">Editar Pedido</h4>
                               <div class="content create-workform bg-body">
                                   <div class="pb-3">
                                       <label class="mb-2">Email</label>
@@ -31,14 +31,14 @@
                     <div class="card">
                         <div class="card-header d-flex justify-content-between">
                             <div class="header-title">
-                                <h4 class="card-title">Actualizar Cliente</h4>
+                                <h4 class="card-title">Actualizar Pedido</h4>
                             </div>
                         </div>
                         <div class="card-body" >
                             <form method="POST" enctype='multipart/form-data'>
                                 {% csrf_token %}
                                 {{form.as_p}}                         
-                                <button type="submit" class="btn btn-primary mr-2">Actualizar Cliente</button>
+                                <button type="submit" class="btn btn-primary mr-2">Actualizar Pedido</button>
 <!--                                 <button type="reset" class="btn btn-danger">Reset</button> -->
                             </form>
                         </div>

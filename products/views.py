@@ -11,7 +11,7 @@ class ProductoCreateView(CreateView):
     model = Producto
     form_class = ProductoForm
     template_name = "create_product.html"
-    success_url = '/'
+    success_url = '/products/list/'
 class ProductoListView(ListView):
     model = Producto
     template_name = "list_product.html"
