@@ -14,7 +14,7 @@
                 <div class="card-body">
                    <form method="POST">
                        {% csrf_token %}
-                    <p> ¿ Seguro que quieres eliminar venta {{object.name}} ?</p>
+                    <p> ¿ Seguro que quieres eliminar venta {{object.id}} ?</p>
                       <button type="submit" class="btn btn-primary">Si</button>
                       <a href="{% url 'list_sale'%}" class="btn bg-danger">Cancelar</a> 
                    </form>
