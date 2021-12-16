@@ -8,15 +8,15 @@
              <div class="card">
                 <div class="card-header d-flex justify-content-between">
                    <div class="header-title">
-                      <h4 class="card-title">Basic Form</h4>
+                      <h4 class="card-title">Eliminar Factura</h4>
                    </div>
                 </div>
                 <div class="card-body">
                    <form method="POST">
                        {% csrf_token %}
-                    <p> ¿ Seguro que quieres eliminar al cliente {{object.name}} ?</p>
+                    <p> ¿ Seguro que quieres eliminar la factura {{object.id}} ?</p>
                       <button type="submit" class="btn btn-primary">Si</button>
-                      <a href="{% url 'list_customer'%}" class="btn bg-danger">Cancelar</a> 
+                      <a href="{% url 'list_bill'%}" class="btn bg-danger">Cancelar</a> 
                    </form>
                 </div>
              </div>

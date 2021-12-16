@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'sales',
     'bills',
     'orders',
-    'vendors'
+    'vendors',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -68,7 +69,8 @@ TEMPLATES = [
             os.path.join(BASE_DIR, "sales/templates"),
             os.path.join(BASE_DIR, "bills/templates"),
             os.path.join(BASE_DIR, "orders/templates"),
-            os.path.join(BASE_DIR, "vendors/templates")
+            os.path.join(BASE_DIR, "vendors/templates"),
+            os.path.join(BASE_DIR, "users/templates")
         ],
         'APP_DIRS': True,
         'OPTIONS': {
